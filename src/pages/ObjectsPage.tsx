@@ -57,7 +57,7 @@ export function ObjectsPage() {
         }
         actions={
           isManager ? (
-            <Button colorPalette="blue" onClick={openCreate}>
+            <Button colorPalette="brand" onClick={openCreate}>
               <Plus size={16} />
               Создать объект
             </Button>
@@ -82,7 +82,7 @@ export function ObjectsPage() {
           }
           action={
             isManager ? (
-              <Button colorPalette="blue" onClick={openCreate}>
+              <Button colorPalette="brand" onClick={openCreate}>
                 <Plus size={16} />
                 Создать объект
               </Button>
@@ -92,7 +92,7 @@ export function ObjectsPage() {
       )}
 
       {objectsQuery.isSuccess && objectsQuery.data.length > 0 && (
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap="4">
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap="4.5">
           {objectsQuery.data.map((object) => (
             <ObjectCard
               key={object.id}

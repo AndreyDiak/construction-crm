@@ -43,7 +43,7 @@ function transitionColor(to: TaskStatus): string {
     return 'red'
   }
 
-  return 'blue'
+  return 'brand'
 }
 
 export function TaskActions({ task, role }: TaskActionsProps) {
@@ -130,9 +130,14 @@ export function TaskActions({ task, role }: TaskActionsProps) {
         }}
       >
         <Portal>
-          <Dialog.Backdrop />
+          <Dialog.Backdrop bg="blackAlpha.500" backdropFilter="blur(2px)" />
           <Dialog.Positioner>
-            <Dialog.Content>
+            <Dialog.Content
+              borderRadius="2xl"
+              borderWidth="1px"
+              borderColor="border.subtle"
+              boxShadow="0 24px 60px rgba(28, 35, 35, 0.14)"
+            >
               <form onSubmit={onCommentSubmit}>
                 <Dialog.Header>
                   <Dialog.Title>{commentTransition?.label}</Dialog.Title>

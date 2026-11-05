@@ -30,9 +30,9 @@ export function LoginForm() {
 
   return (
     <form onSubmit={onSubmit}>
-      <Stack gap="4">
+      <Stack gap="5">
         {submitError && (
-          <Alert.Root status="error" variant="subtle">
+          <Alert.Root status="error" variant="subtle" borderRadius="lg">
             <Alert.Indicator />
             <Alert.Content>
               <Alert.Title>Не удалось войти</Alert.Title>
@@ -42,28 +42,42 @@ export function LoginForm() {
         )}
 
         <Field.Root invalid={Boolean(errors.email)}>
-          <Field.Label>Email</Field.Label>
+          <Field.Label color="gray.700">Email</Field.Label>
           <Input
             {...register('email')}
             type="email"
             autoComplete="email"
             placeholder="name@company.ru"
+            size="lg"
+            bg="bg.surface"
+            borderColor="border.subtle"
+            _hover={{ borderColor: 'border.muted' }}
           />
           <Field.ErrorText>{errors.email?.message}</Field.ErrorText>
         </Field.Root>
 
         <Field.Root invalid={Boolean(errors.password)}>
-          <Field.Label>Пароль</Field.Label>
+          <Field.Label color="gray.700">Пароль</Field.Label>
           <Input
             {...register('password')}
             type="password"
             autoComplete="current-password"
             placeholder="••••••••"
+            size="lg"
+            bg="bg.surface"
+            borderColor="border.subtle"
+            _hover={{ borderColor: 'border.muted' }}
           />
           <Field.ErrorText>{errors.password?.message}</Field.ErrorText>
         </Field.Root>
 
-        <Button type="submit" colorPalette="blue" size="lg" loading={isSubmitting}>
+        <Button
+          type="submit"
+          colorPalette="brand"
+          size="lg"
+          loading={isSubmitting}
+          mt="1"
+        >
           Войти
         </Button>
       </Stack>

@@ -83,9 +83,14 @@ export function TaskFormDialog({
   return (
     <Dialog.Root open={open} onOpenChange={(details) => onOpenChange(details.open)}>
       <Portal>
-        <Dialog.Backdrop />
+        <Dialog.Backdrop bg="blackAlpha.500" backdropFilter="blur(2px)" />
         <Dialog.Positioner>
-          <Dialog.Content>
+          <Dialog.Content
+            borderRadius="2xl"
+            borderWidth="1px"
+            borderColor="border.subtle"
+            boxShadow="0 24px 60px rgba(28, 35, 35, 0.14)"
+          >
             <form onSubmit={onSubmit}>
               <Dialog.Header>
                 <Dialog.Title>
@@ -165,7 +170,7 @@ export function TaskFormDialog({
                 </Button>
                 <Button
                   type="submit"
-                  colorPalette="blue"
+                  colorPalette="brand"
                   loading={isPending}
                   disabled={!hasExecutors || executorsQuery.isError}
                 >

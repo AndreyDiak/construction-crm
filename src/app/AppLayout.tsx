@@ -18,12 +18,16 @@ function NavItems({ items }: { items: NavItem[] }) {
             <Box
               px="3"
               py="2"
-              borderRadius="md"
-              bg={isActive ? 'blue.50' : 'transparent'}
-              color={isActive ? 'blue.700' : 'gray.700'}
+              borderRadius="lg"
+              bg={isActive ? 'brand.subtle' : 'transparent'}
+              color={isActive ? 'brand.fg' : 'gray.600'}
               fontWeight={isActive ? 'semibold' : 'medium'}
               fontSize="sm"
-              _hover={{ bg: isActive ? 'blue.50' : 'gray.100' }}
+              transition="background 0.15s ease, color 0.15s ease"
+              _hover={{
+                bg: isActive ? 'brand.subtle' : 'bg.muted',
+                color: isActive ? 'brand.fg' : 'gray.800',
+              }}
             >
               {item.label}
             </Box>
@@ -54,15 +58,16 @@ export function AppLayout() {
   }
 
   return (
-    <Box minH="100vh" bg="gray.50">
+    <Box minH="100vh" bg="bg.app">
       <Box
         as="header"
-        bg="white"
+        bg="bg.surface/90"
         borderBottomWidth="1px"
-        borderColor="gray.200"
+        borderColor="border.subtle"
         position="sticky"
         top="0"
         zIndex="sticky"
+        backdropFilter="blur(10px)"
       >
         <Flex
           maxW="6xl"
@@ -77,12 +82,23 @@ export function AppLayout() {
         >
           <Flex align="center" gap="6" wrap="wrap">
             <Flex align="center" gap="2.5">
-              <Box p="2" bg="blue.600" color="white" borderRadius="lg">
+              <Box
+                p="2"
+                bg="brand.solid"
+                color="white"
+                borderRadius="lg"
+                boxShadow="0 6px 16px rgba(47, 111, 107, 0.2)"
+              >
                 <Icon>
-                  <Building2 size={20} />
+                  <Building2 size={18} />
                 </Icon>
               </Box>
-              <Text fontWeight="bold" fontSize="lg" color="gray.900">
+              <Text
+                fontWeight="bold"
+                fontSize="lg"
+                color="gray.900"
+                letterSpacing="-0.02em"
+              >
                 СтройCRM
               </Text>
             </Flex>
@@ -99,6 +115,8 @@ export function AppLayout() {
             <Button
               size="sm"
               variant="ghost"
+              color="gray.600"
+              _hover={{ bg: 'bg.muted', color: 'gray.900' }}
               onClick={() => {
                 void handleSignOut()
               }}
@@ -110,7 +128,7 @@ export function AppLayout() {
         </Flex>
       </Box>
 
-      <Box as="main" maxW="6xl" mx="auto" px={{ base: '4', md: '6' }} py="8">
+      <Box as="main" maxW="6xl" mx="auto" px={{ base: '4', md: '6' }} py={{ base: '6', md: '8' }}>
         <Outlet />
       </Box>
     </Box>

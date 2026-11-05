@@ -14,7 +14,7 @@ export const TASK_STATUS_META: Record<
 > = {
   new: {
     label: 'Новая',
-    colorPalette: 'blue',
+    colorPalette: 'brand',
     description: 'Задача создана и ждёт исполнителя',
   },
   in_progress: {

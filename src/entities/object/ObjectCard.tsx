@@ -12,7 +12,19 @@ type ObjectCardProps = {
 
 export function ObjectCard({ object, isManager, onEdit, onDelete }: ObjectCardProps) {
   return (
-    <Card.Root variant="outline" bg="white" height="100%">
+    <Card.Root
+      variant="outline"
+      bg="bg.surface"
+      height="100%"
+      borderColor="border.subtle"
+      borderRadius="2xl"
+      transition="border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease"
+      _hover={{
+        borderColor: 'brand.emphasized',
+        boxShadow: '0 12px 32px rgba(28, 35, 35, 0.06)',
+        transform: 'translateY(-1px)',
+      }}
+    >
       <Card.Body gap="4">
         <Flex justify="space-between" align="flex-start" gap="3">
           <Box minW="0">
@@ -21,13 +33,16 @@ export function ObjectCard({ object, isManager, onEdit, onDelete }: ObjectCardPr
               fontWeight="semibold"
               fontSize="lg"
               color="gray.900"
-              _hover={{ color: 'blue.600' }}
+              letterSpacing="-0.01em"
+              _hover={{ color: 'brand.fg' }}
             >
               <RouterLink to={`/objects/${object.id}`}>{object.name}</RouterLink>
             </Link>
             <HStack mt="2" color="gray.600" align="flex-start" gap="1.5">
-              <MapPin size={16} />
-              <Text fontSize="sm" lineClamp={2}>
+              <Box color="gray.400" mt="0.5">
+                <MapPin size={16} />
+              </Box>
+              <Text fontSize="sm" lineClamp={2} lineHeight="1.5">
                 {object.address}
               </Text>
             </HStack>
@@ -35,7 +50,7 @@ export function ObjectCard({ object, isManager, onEdit, onDelete }: ObjectCardPr
         </Flex>
 
         <HStack gap="2" wrap="wrap">
-          <Badge colorPalette="blue" variant="subtle">
+          <Badge colorPalette="brand" variant="subtle" borderRadius="md">
             <ClipboardList size={12} />
             Задач: {object.active_task_count}
           </Badge>
@@ -44,7 +59,7 @@ export function ObjectCard({ object, isManager, onEdit, onDelete }: ObjectCardPr
 
       <Card.Footer pt="0">
         <HStack justify="space-between" width="full">
-          <Button asChild size="sm" variant="ghost" colorPalette="blue">
+          <Button asChild size="sm" variant="ghost" colorPalette="brand">
             <RouterLink to={`/objects/${object.id}`}>Открыть объект</RouterLink>
           </Button>
 

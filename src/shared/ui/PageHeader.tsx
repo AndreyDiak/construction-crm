@@ -14,14 +14,14 @@ export function PageHeader({ title, description, actions }: PageHeaderProps) {
       align={{ base: 'flex-start', md: 'center' }}
       direction={{ base: 'column', md: 'row' }}
       gap="4"
-      mb="6"
+      mb="7"
     >
       <Box>
-        <Heading size="2xl" color="gray.900">
+        <Heading size="2xl" color="gray.900" letterSpacing="-0.025em">
           {title}
         </Heading>
         {description && (
-          <Text mt="2" color="gray.600">
+          <Text mt="2" color="gray.600" maxW="2xl">
             {description}
           </Text>
         )}

@@ -65,9 +65,14 @@ export function ObjectFormDialog({ open, onOpenChange, object }: ObjectFormDialo
   return (
     <Dialog.Root open={open} onOpenChange={(details) => onOpenChange(details.open)}>
       <Portal>
-        <Dialog.Backdrop />
+        <Dialog.Backdrop bg="blackAlpha.500" backdropFilter="blur(2px)" />
         <Dialog.Positioner>
-          <Dialog.Content>
+          <Dialog.Content
+            borderRadius="2xl"
+            borderWidth="1px"
+            borderColor="border.subtle"
+            boxShadow="0 24px 60px rgba(28, 35, 35, 0.14)"
+          >
             <form onSubmit={onSubmit}>
               <Dialog.Header>
                 <Dialog.Title>
@@ -83,6 +88,7 @@ export function ObjectFormDialog({ open, onOpenChange, object }: ObjectFormDialo
                       {...register('name')}
                       placeholder="Например, ЖК «Северный», корпус 2"
                       autoFocus
+                      borderColor="border.subtle"
                     />
                     <Field.ErrorText>{errors.name?.message}</Field.ErrorText>
                   </Field.Root>
@@ -93,6 +99,7 @@ export function ObjectFormDialog({ open, onOpenChange, object }: ObjectFormDialo
                       {...register('address')}
                       placeholder="Город, улица, дом"
                       rows={3}
+                      borderColor="border.subtle"
                     />
                     <Field.ErrorText>{errors.address?.message}</Field.ErrorText>
                   </Field.Root>
@@ -103,7 +110,7 @@ export function ObjectFormDialog({ open, onOpenChange, object }: ObjectFormDialo
                 <Button variant="ghost" onClick={() => onOpenChange(false)}>
                   Отмена
                 </Button>
-                <Button type="submit" colorPalette="blue" loading={isPending}>
+                <Button type="submit" colorPalette="brand" loading={isPending}>
                   {isEditing ? 'Сохранить' : 'Создать'}
                 </Button>
               </Dialog.Footer>

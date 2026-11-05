@@ -21,7 +21,7 @@ export function MyTasksPage() {
         title="Раздел для исполнителей"
         description="У постановщика нет назначенных задач. Задачи доступны в карточках объектов."
         action={
-          <Button asChild colorPalette="blue">
+          <Button asChild colorPalette="brand">
             <RouterLink to="/objects">Перейти к объектам</RouterLink>
           </Button>
         }
@@ -73,7 +73,7 @@ export function MyTasksPage() {
             </HStack>
           )}
 
-          <SimpleGrid columns={{ base: 1, lg: 2 }} gap="4">
+          <SimpleGrid columns={{ base: 1, lg: 2 }} gap="4.5">
             {tasks.map((task) => (
               <TaskCard key={task.id} task={task} showObject />
             ))}

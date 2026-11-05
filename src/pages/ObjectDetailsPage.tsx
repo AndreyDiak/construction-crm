@@ -95,7 +95,7 @@ export function ObjectDetailsPage() {
 
   return (
     <>
-      <Link asChild color="gray.600" fontSize="sm" mb="4" _hover={{ color: 'blue.600' }}>
+      <Link asChild color="gray.600" fontSize="sm" mb="4" _hover={{ color: 'brand.fg' }}>
         <RouterLink to="/objects">
           <HStack gap="1.5">
             <ArrowLeft size={16} />
@@ -104,15 +104,21 @@ export function ObjectDetailsPage() {
         </RouterLink>
       </Link>
 
-      <Card.Root variant="outline" bg="white" mb="6">
+      <Card.Root
+        variant="outline"
+        bg="bg.surface"
+        borderColor="border.subtle"
+        borderRadius="2xl"
+        mb="6"
+      >
         <Card.Body>
           <Flex justify="space-between" align="flex-start" gap="4" wrap="wrap">
             <Stack gap="2">
-              <Heading size="2xl" color="gray.900">
+              <Heading size="2xl" color="gray.900" letterSpacing="-0.025em">
                 {object.name}
               </Heading>
               <HStack color="gray.600" align="flex-start" gap="2">
-                <Icon mt="0.5">
+                <Icon mt="0.5" color="gray.400">
                   <MapPin size={18} />
                 </Icon>
                 <Text>{object.address}</Text>
@@ -169,7 +175,7 @@ export function ObjectDetailsPage() {
         </Stack>
 
         {isManager && !objectDeleted && (
-          <Button colorPalette="blue" onClick={openCreateTask}>
+          <Button colorPalette="brand" onClick={openCreateTask}>
             <Plus size={16} />
             Добавить задачу
           </Button>
@@ -193,7 +199,7 @@ export function ObjectDetailsPage() {
           }
           action={
             isManager && !objectDeleted ? (
-              <Button colorPalette="blue" onClick={openCreateTask}>
+              <Button colorPalette="brand" onClick={openCreateTask}>
                 <Plus size={16} />
                 Добавить задачу
               </Button>
@@ -203,7 +209,7 @@ export function ObjectDetailsPage() {
       )}
 
       {tasksQuery.isSuccess && tasksQuery.data.length > 0 && (
-        <SimpleGrid columns={{ base: 1, lg: 2 }} gap="4">
+        <SimpleGrid columns={{ base: 1, lg: 2 }} gap="4.5">
           {tasksQuery.data.map((task) => (
             <Stack key={task.id} gap="2">
               <TaskCard task={task} />

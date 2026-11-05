@@ -19,8 +19,8 @@ export function LoginPage() {
 
   if (isLoading) {
     return (
-      <Center minH="100vh" bg="gray.50">
-        <Spinner size="lg" color="blue.500" />
+      <Center minH="100vh" bg="bg.app">
+        <Spinner size="lg" color="brand.solid" />
       </Center>
     )
   }
@@ -30,40 +30,54 @@ export function LoginPage() {
   }
 
   return (
-    <Flex minH="100vh" bg="gray.50" align="center" justify="center" px="4" py="10">
-      <Stack gap="6" width="full" maxW="420px">
-        <Flex align="center" gap="3">
-          <Box p="3" bg="blue.600" color="white" borderRadius="xl">
+    <Flex
+      className="login-atmosphere"
+      position="relative"
+      minH="100vh"
+      align="center"
+      justify="center"
+      px="4"
+      py="10"
+    >
+      <Stack gap="8" width="full" maxW="420px" position="relative" zIndex="1">
+        <Flex align="center" gap="3.5">
+          <Box
+            p="3"
+            bg="brand.solid"
+            color="white"
+            borderRadius="xl"
+            boxShadow="0 10px 28px rgba(47, 111, 107, 0.22)"
+          >
             <Icon>
               <Building2 size={26} />
             </Icon>
           </Box>
           <Box>
-            <Heading size="xl" color="gray.900">
+            <Heading size="xl" color="gray.900" letterSpacing="-0.02em">
               СтройCRM
             </Heading>
-            <Text color="gray.600" fontSize="sm">
+            <Text color="gray.600" fontSize="sm" mt="0.5">
               Объекты и задачи строительной компании
             </Text>
           </Box>
         </Flex>
 
-        <Card.Root variant="outline" bg="white">
-          <Card.Header>
-            <Card.Title>Вход в систему</Card.Title>
-            <Card.Description>
+        <Card.Root
+          variant="outline"
+          bg="bg.surface"
+          borderColor="border.subtle"
+          borderRadius="2xl"
+          boxShadow="0 18px 50px rgba(28, 35, 35, 0.06)"
+        >
+          <Card.Header pb="2">
+            <Card.Title fontSize="lg">Вход в систему</Card.Title>
+            <Card.Description color="gray.600">
               Используйте учётную запись, созданную администратором.
             </Card.Description>
           </Card.Header>
-          <Card.Body>
+          <Card.Body pt="2">
             <LoginForm />
           </Card.Body>
-          <Card.Footer>
-            <Text fontSize="xs" color="gray.500">
-              Регистрация отключена. Новые пользователи создаются через Supabase
-              Dashboard.
-            </Text>
-          </Card.Footer>
         </Card.Root>
       </Stack>
     </Flex>

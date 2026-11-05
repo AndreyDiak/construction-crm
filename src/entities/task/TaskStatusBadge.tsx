@@ -6,7 +6,7 @@ export function TaskStatusBadge({ status }: { status: TaskStatus }) {
   const meta = TASK_STATUS_META[status]
 
   return (
-    <Badge colorPalette={meta.colorPalette} variant="subtle">
+    <Badge colorPalette={meta.colorPalette} variant="subtle" borderRadius="md" px="2.5">
       {meta.label}
     </Badge>
   )

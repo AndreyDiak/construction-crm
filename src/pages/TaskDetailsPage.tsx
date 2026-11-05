@@ -121,7 +121,7 @@ export function TaskDetailsPage() {
 
   return (
     <>
-      <Link asChild color="gray.600" fontSize="sm" mb="4" _hover={{ color: 'blue.600' }}>
+      <Link asChild color="gray.600" fontSize="sm" mb="4" _hover={{ color: 'brand.fg' }}>
         <RouterLink to={backLink}>
           <HStack gap="1.5">
             <ArrowLeft size={16} />
@@ -133,12 +133,12 @@ export function TaskDetailsPage() {
       <Flex justify="space-between" align="flex-start" gap="4" mb="6" wrap="wrap">
         <Stack gap="2">
           <HStack gap="3" wrap="wrap">
-            <Heading size="2xl" color="gray.900">
+            <Heading size="2xl" color="gray.900" letterSpacing="-0.025em">
               {task.title}
             </Heading>
             <TaskStatusBadge status={task.status} />
             {task.is_deleted && (
-              <Badge colorPalette="gray" variant="subtle">
+              <Badge colorPalette="gray" variant="subtle" borderRadius="md">
                 Удалена
               </Badge>
             )}
@@ -146,7 +146,7 @@ export function TaskDetailsPage() {
           {task.object && (
             <HStack color="gray.600" fontSize="sm" gap="1.5">
               <MapPin size={14} />
-              <Link asChild _hover={{ color: 'blue.600' }}>
+              <Link asChild _hover={{ color: 'brand.fg' }}>
                 <RouterLink to={`/objects/${task.object_id}`}>
                   {task.object.name}
                 </RouterLink>
@@ -191,7 +191,12 @@ export function TaskDetailsPage() {
       )}
 
       <Stack gap="6">
-        <Card.Root variant="outline" bg="white">
+        <Card.Root
+          variant="outline"
+          bg="bg.surface"
+          borderColor="border.subtle"
+          borderRadius="2xl"
+        >
           <Card.Header>
             <Card.Title>Описание и параметры</Card.Title>
           </Card.Header>
@@ -201,17 +206,22 @@ export function TaskDetailsPage() {
                 <Text fontSize="xs" color="gray.500" textTransform="uppercase" letterSpacing="wide">
                   Описание
                 </Text>
-                <Text mt="2" color={task.description ? 'gray.800' : 'gray.500'} whiteSpace="pre-wrap">
+                <Text
+                  mt="2"
+                  color={task.description ? 'gray.800' : 'gray.500'}
+                  whiteSpace="pre-wrap"
+                  lineHeight="1.65"
+                >
                   {task.description || 'Описание не указано'}
                 </Text>
               </Box>
 
-              <Separator />
+              <Separator borderColor="border.subtle" />
 
               <SimpleGrid columns={{ base: 1, md: 2 }} gap="5">
                 <MetaItem icon={<MapPin size={18} />} label="Объект">
                   {task.object ? (
-                    <Link asChild color="blue.600" _hover={{ textDecoration: 'underline' }}>
+                    <Link asChild color="brand.fg" _hover={{ textDecoration: 'underline' }}>
                       <RouterLink to={`/objects/${task.object_id}`}>
                         {task.object.name}
                       </RouterLink>
@@ -241,7 +251,12 @@ export function TaskDetailsPage() {
           </Card.Body>
         </Card.Root>
 
-        <Card.Root variant="outline" bg="white">
+        <Card.Root
+          variant="outline"
+          bg="bg.surface"
+          borderColor="border.subtle"
+          borderRadius="2xl"
+        >
           <Card.Header>
             <HStack gap="2">
               <Icon color="gray.500">
@@ -269,9 +284,9 @@ export function TaskDetailsPage() {
                 {historyQuery.data.map((item, index) => (
                   <HStack key={item.id} align="flex-start" gap="3">
                     <Stack align="center" alignSelf="stretch" width="3" flexShrink="0">
-                      <Box mt="1.5" boxSize="2.5" borderRadius="full" bg="blue.500" />
+                      <Box mt="1.5" boxSize="2.5" borderRadius="full" bg="brand.solid" />
                       {index < historyQuery.data.length - 1 && (
-                        <Box flex="1" width="1px" bg="gray.200" minH="24px" />
+                        <Box flex="1" width="1px" bg="border.subtle" minH="24px" />
                       )}
                     </Stack>
 
@@ -285,7 +300,7 @@ export function TaskDetailsPage() {
                             </Icon>
                           </>
                         ) : (
-                          <Badge colorPalette="gray" variant="subtle">
+                          <Badge colorPalette="gray" variant="subtle" borderRadius="md">
                             Создание
                           </Badge>
                         )}
@@ -299,7 +314,15 @@ export function TaskDetailsPage() {
                       </HStack>
 
                       {item.comment && (
-                        <Box mt="2" bg="gray.50" borderRadius="md" px="3" py="2">
+                        <Box
+                          mt="2"
+                          bg="bg.muted"
+                          borderRadius="lg"
+                          borderWidth="1px"
+                          borderColor="border.subtle"
+                          px="3"
+                          py="2"
+                        >
                           <Text fontSize="sm" color="gray.700" whiteSpace="pre-wrap">
                             {item.comment}
                           </Text>

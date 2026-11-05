@@ -1,7 +1,8 @@
-import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useState, type ReactNode } from 'react'
 import { AuthProvider } from '@/features/auth/AuthProvider'
+import { system } from '@/shared/ui/theme'
 import { Toaster } from '@/shared/ui/toaster'
 
 export function AppProviders({ children }: { children: ReactNode }) {
@@ -20,7 +21,7 @@ export function AppProviders({ children }: { children: ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ChakraProvider value={defaultSystem}>
+      <ChakraProvider value={system}>
         <AuthProvider>{children}</AuthProvider>
         <Toaster />
       </ChakraProvider>

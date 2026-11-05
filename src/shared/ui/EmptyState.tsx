@@ -14,23 +14,30 @@ export function EmptyState({ icon: Icon, title, description, action }: EmptyStat
     <Box
       borderWidth="1px"
       borderStyle="dashed"
-      borderColor="gray.300"
-      borderRadius="xl"
-      bg="white"
+      borderColor="border.muted"
+      borderRadius="2xl"
+      bg="bg.surface"
       px="6"
-      py="12"
+      py="14"
       textAlign="center"
     >
       <Stack align="center" gap="4">
-        <Box p="3" borderRadius="full" bg="gray.100" color="gray.500">
-          <Icon size={28} />
+        <Box
+          p="3.5"
+          borderRadius="full"
+          bg="brand.subtle"
+          color="brand.fg"
+          borderWidth="1px"
+          borderColor="brand.emphasized"
+        >
+          <Icon size={26} />
         </Box>
-        <Stack gap="1" align="center">
+        <Stack gap="1.5" align="center">
           <Text fontWeight="semibold" fontSize="lg" color="gray.900">
             {title}
           </Text>
           {description && (
-            <Text color="gray.600" maxW="md">
+            <Text color="gray.600" maxW="md" lineHeight="1.6">
               {description}
             </Text>
           )}

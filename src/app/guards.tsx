@@ -8,8 +8,8 @@ export function ProtectedRoute() {
 
   if (isLoading) {
     return (
-      <Center minH="100vh" bg="gray.50">
-        <Spinner size="lg" color="blue.500" />
+      <Center minH="100vh" bg="bg.app">
+        <Spinner size="lg" color="brand.solid" />
       </Center>
     )
   }
@@ -20,9 +20,21 @@ export function ProtectedRoute() {
 
   if (!profile) {
     return (
-      <Center minH="100vh" bg="gray.50" px="4">
-        <Stack align="center" gap="4" textAlign="center">
-          <Text fontWeight="semibold" fontSize="lg">
+      <Center minH="100vh" bg="bg.app" px="4">
+        <Stack
+          align="center"
+          gap="4"
+          textAlign="center"
+          bg="bg.surface"
+          borderWidth="1px"
+          borderColor="border.subtle"
+          borderRadius="2xl"
+          px="8"
+          py="10"
+          maxW="md"
+          boxShadow="0 12px 40px rgba(28, 35, 35, 0.05)"
+        >
+          <Text fontWeight="semibold" fontSize="lg" color="gray.900">
             Не удалось загрузить профиль
           </Text>
           <Text color="gray.600">

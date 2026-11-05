@@ -9,7 +9,7 @@ type ErrorStateProps = {
 
 export function ErrorState({ error, onRetry }: ErrorStateProps) {
   return (
-    <Alert.Root status="error" variant="subtle" borderRadius="lg">
+    <Alert.Root status="error" variant="subtle" borderRadius="xl" borderWidth="1px" borderColor="red.100">
       <Alert.Indicator />
       <Alert.Content>
         <Alert.Title>Не удалось загрузить данные</Alert.Title>
