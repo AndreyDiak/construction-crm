@@ -1,0 +1,2 @@
+-- Local-only seed hook. Test users for the cloud project are created in the
+-- Supabase Dashboard, because auth users require the GoTrue admin API.
